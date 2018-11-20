@@ -19,8 +19,14 @@ class Square extends React.Component {
 }
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null)
+    };
+  }
   renderSquare(i) {
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]} />;
   }
   render() {
     const status = "Next player: X";
@@ -39,9 +45,9 @@ class Board extends React.Component {
           {this.renderSquare(5)}
         </div>
         <div className="board-row">
+          {this.renderSquare(6)}
           {this.renderSquare(7)}
           {this.renderSquare(8)}
-          {this.renderSquare(9)}
         </div>
       </div>
     );
